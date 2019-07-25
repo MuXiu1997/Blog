@@ -3,7 +3,7 @@
     <Anchor :affix="false" show-ink
             :container="container.$el"
             @on-select="scrollIntoAnchor"
-            v-if="isReady"
+            v-if="isReady && nodes.length"
             style="overflow: hidden"
     >
       <AnchorLink v-for="node in nodes" :href="'#'+node.id" :title="node.id" :key="node.id">
