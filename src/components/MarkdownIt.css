@@ -1,0 +1,71 @@
+#markdown {
+  font-family: "Fira Code", "Helvetica Neue", Helvetica, "PingFang SC",
+  "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+  font-size: 16px;
+}
+
+code, kbd, pre, samp {
+  font-family: "Fira Code", "Helvetica Neue", Helvetica, "PingFang SC",
+  "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+
+#markdown h1,
+#markdown h2,
+#markdown h3,
+#markdown h4,
+#markdown h5,
+#markdown h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  margin-top: 24px;
+}
+
+#markdown h1, #markdown h2 {
+  border-bottom: 1px solid #eaecef;
+  padding-bottom: .3em;
+}
+
+#markdown pre {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  font-size: 85%;
+  line-height: 1.45;
+  overflow: auto;
+  padding: 16px;
+}
+
+  #markdown pre::-webkit-scrollbar {
+    height: 6px;
+  }
+
+  #markdown pre::-webkit-scrollbar-button, #markdown pre::-webkit-scrollbar-track {
+    display: none;
+  }
+
+  #markdown pre::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  #markdown pre::-webkit-scrollbar-track-piece {
+    background: rgba(255, 255, 255, 0.7);
+ }
+
+  #markdown pre::-webkit-scrollbar-thumb {
+    background: rgba(140, 140, 140, 0.25);
+    border-radius: 4px;
+  }
+
+#markdown code {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+#markdown hr {
+  margin: 8px 0;
+  border: 0;
+  height: 1px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}

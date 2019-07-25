@@ -5,7 +5,9 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-
+    containerStyle: {
+      height: `calc(100% - ${60}px)`
+    }
   },
   mutations: {
 
