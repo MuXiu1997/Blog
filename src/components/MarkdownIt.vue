@@ -23,7 +23,7 @@ const wrap = (code, lang) => {
 }
 
 const uslugify = (s) => {
-  uslug(s)
+  return uslug(s)
 }
 
 const highlight = (str, lang) => {
