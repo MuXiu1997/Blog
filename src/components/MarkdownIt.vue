@@ -6,6 +6,7 @@
 <script>
 import MDI from 'markdown-it'
 import anchor from 'markdown-it-anchor'
+import emoji from'markdown-it-emoji'
 
 import prism from 'prismjs'
 import loadLanguages from 'prismjs/components'
@@ -114,6 +115,7 @@ export default {
           permalinkBefore: true,
           slugify: uslugify
         })
+        .use(emoji)
         // 用以渲染的html字符串
       this.result = md.render(content)
       // 所有token中符合h2,h3标签的，用于生成大纲
