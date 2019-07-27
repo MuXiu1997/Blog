@@ -15,6 +15,9 @@ import 'prismjs/themes/prism.css'
 import escapeHtml from 'escape-html'
 import uslug from 'uslug'
 
+import Viewer from 'viewerjs'
+import 'viewerjs/dist/viewer.css'
+
 const wrap = (code, lang) => {
   if (lang === 'text') {
     code = escapeHtml(code)
@@ -71,23 +74,35 @@ export default {
   },
   data () {
     return {
-      result: null
+      result: null,
+      reload: false,
+      Viewer: null
     }
+  },
+  mounted () {
+    // 添加图片缩放功能
+    const ViewerDom = document.getElementById('markdown')
+    this.Viewer = new Viewer(ViewerDom, {
+      title: 0,
+      fullscreen: false,
+      navbar: 0,
+      toolbar: 0
+    })
   },
   watch: {
     content () {
-      this.initMarkdownIt()
-    }
-  },
-  computed: {
-    contentReplaced () {
-      // 删除markdown文件的头部YAML信息
       let regex = new RegExp(/---\s+?typora-root-url:.*\s+?typora-copy-images-to:.*\s+?---\s+/)
-      return this.content.replace(regex, '')
+      // 删除markdown文件的头部YAML信息
+      let content = this.content.replace(regex, '')
+      this.initMarkdownIt(content)
+      // 更新图片缩放
+      this.$nextTick(() => {
+        this.Viewer.update()
+      })
     }
   },
   methods: {
-    initMarkdownIt () {
+    initMarkdownIt (content) {
       let md = new MDI({
         highlight: highlight
       })
@@ -100,9 +115,9 @@ export default {
           slugify: uslugify
         })
         // 用以渲染的html字符串
-      this.result = md.render(this.contentReplaced)
+      this.result = md.render(content)
       // 所有token中符合h2,h3标签的，用于生成大纲
-      let parsed = md.parse(this.contentReplaced, {})
+      let parsed = md.parse(content, {})
       this.$nextTick(() => {
         this.$emit('parsed', parsed.filter((o) => o.attrs !== null && ['h2', 'h3'].includes(o.tag)))
       })
