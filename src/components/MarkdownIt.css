@@ -1,6 +1,7 @@
 * {
-     box-sizing: border-box;
+  box-sizing: border-box;
 }
+
 #markdown {
   font-family: "Fira Code", "Helvetica Neue", Helvetica, "PingFang SC",
   "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
@@ -96,5 +97,9 @@ code, kbd, pre, samp {
 }
 
 #markdown ol, #markdown ul {
-    padding-left: 2em;
+  padding-left: 2em;
+}
+
+#markdown img {
+  max-width: 100%;
 }

@@ -59,6 +59,7 @@ const highlight = (str, lang) => {
   }
   return wrap(str, 'text')
 }
+
 // noinspection JSUnusedGlobalSymbols
 export default {
   name: 'MarkdownIt',
@@ -78,12 +79,19 @@ export default {
       this.initMarkdownIt()
     }
   },
+  computed: {
+    contentReplaced () {
+      // 删除markdown文件的头部YAML信息
+      let regex = new RegExp(/---\s+?typora-root-url:.*\s+?typora-copy-images-to:.*\s+?---\s+/)
+      return this.content.replace(regex, '')
+    }
+  },
   methods: {
     initMarkdownIt () {
       let md = new MDI({
         highlight: highlight
       })
-        // 锚点插件
+      // 锚点插件
         .use(anchor, {
           permalink: true,
           permalinkSymbol: '#',
@@ -92,11 +100,11 @@ export default {
           slugify: uslugify
         })
         // 用以渲染的html字符串
-      this.result = md.render(this.content)
+      this.result = md.render(this.contentReplaced)
       // 所有token中符合h2,h3标签的，用于生成大纲
-      let parsed = md.parse(this.content, {}).filter((o) => o.attrs !== null && ['h2', 'h3'].includes(o.tag))
+      let parsed = md.parse(this.contentReplaced, {})
       this.$nextTick(() => {
-        this.$emit('parsed', parsed)
+        this.$emit('parsed', parsed.filter((o) => o.attrs !== null && ['h2', 'h3'].includes(o.tag)))
       })
     }
   }
