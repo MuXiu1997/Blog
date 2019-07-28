@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import { AnchorLink } from 'iview'
+import { Anchor, AnchorLink } from 'iview'
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -28,6 +28,7 @@ export default {
     }
   },
   components: {
+    Anchor,
     AnchorLink
   },
   data () {
@@ -62,7 +63,6 @@ export default {
   },
   methods: {
     scrollIntoAnchor (id) {
-      // console.log(id)
       document.getElementById(id.replace('#', '')).scrollIntoView(true)
     }
   }

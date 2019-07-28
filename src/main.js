@@ -19,7 +19,7 @@ import {
 import 'element-ui/lib/theme-chalk/index.css'
 
 // 导入iview
-import { LoadingBar, Anchor, Affix } from 'iview'
+import { LoadingBar } from 'iview'
 import 'iview/dist/styles/iview.css'
 
 Vue.use(Container)
@@ -32,9 +32,6 @@ Vue.use(Col)
 Vue.use(Link)
 Vue.use(Divider)
 Vue.component('LoadingBar', LoadingBar)
-Vue.component('Anchor', Anchor)
-Vue.component('Affix', Affix)
-
 Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {

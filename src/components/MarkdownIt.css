@@ -9,6 +9,10 @@
   line-height: 1.5;
 }
 
+#markdown p {
+  padding: 4px 0;
+}
+
 code, kbd, pre, samp {
   font-family: "Fira Code", "Helvetica Neue", Helvetica, "PingFang SC",
   "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
@@ -38,6 +42,7 @@ code, kbd, pre, samp {
   line-height: 1.45;
   overflow: auto;
   padding: 16px;
+  border: 1px solid rgba(200,200,200,0.25);
 }
 
 #markdown pre::-webkit-scrollbar {
@@ -61,10 +66,18 @@ code, kbd, pre, samp {
   border-radius: 4px;
 }
 
-#markdown code {
+#markdown pre code {
   background-color: #f6f8fa;
   border-radius: 3px;
   padding: 2px;
+}
+
+#markdown :not(pre) > code {
+  background-color: #f6f8fa;
+  border-radius: 3px;
+  padding: 0.125em 0.25em;
+  font-size: 85%;
+  border: 1px solid rgba(200,200,200,0.25);
 }
 
 #markdown hr {

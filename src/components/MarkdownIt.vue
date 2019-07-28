@@ -6,7 +6,7 @@
 <script>
 import MDI from 'markdown-it'
 import anchor from 'markdown-it-anchor'
-import emoji from'markdown-it-emoji'
+import emoji from 'markdown-it-emoji'
 
 import prism from 'prismjs'
 import loadLanguages from 'prismjs/components'

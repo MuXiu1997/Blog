@@ -26,6 +26,15 @@ import Logo from '@/components/Logo'
 
 import axios from 'axios'
 
+const dateFormat = () => {
+  // 将当前日期格式化为YYYYMMDD
+  let date = new Date()
+  let Y = date.getFullYear()
+  let M = ('0' + (date.getMonth() + 1)).slice(-2)
+  let D = ('0' + date.getDate()).slice(-2)
+  return `${Y}${M}${D}`
+}
+
 // noinspection JSUnusedGlobalSymbols
 export default {
   name: 'Note',
@@ -58,8 +67,7 @@ export default {
   methods: {
     getMarkdownFile (path) {
       this.$Loading.start()
-      let date = new Date()
-      axios.get(`/markdown/${path}?t=${date.getFullYear()}${date.getMonth() + 1}${date.getDate()}`)
+      axios.get(`/markdown/${path}?t=${dateFormat()}`)
         .then((res) => {
           this.content = res.data
           this.$Loading.finish()
@@ -79,7 +87,6 @@ export default {
       }, 20)
     },
     setTokens (tokens) {
-      this.tokens = null
       this.tokens = tokens
     }
   }
