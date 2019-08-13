@@ -4,6 +4,8 @@
       <note-side
         :container="$refs['noteMain']"
         :tokens="tokens"
+        :tree="tree"
+        ref="note-side"
       />
     </el-aside>
     <el-main style="padding: 0" class="scrollStyle" ref="noteMain">
@@ -24,16 +26,7 @@
 import NoteSide from './components/NoteSide'
 import TheLogo from '../../components/TheLogo'
 
-import axios from 'axios/index'
-
-const dateFormat = () => {
-  // 将当前日期格式化为YYYYMMDD
-  let date = new Date()
-  let Y = date.getFullYear()
-  let M = ('0' + (date.getMonth() + 1)).slice(-2)
-  let D = ('0' + date.getDate()).slice(-2)
-  return `${Y}${M}${D}`
-}
+import { getSideData, getMarkdownFile } from '../../api'
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -45,10 +38,15 @@ export default {
   data () {
     return {
       content: null,
-      tokens: null
+      tokens: null,
+      tree: null
     }
   },
   created () {
+    getSideData()
+      .then((response) => {
+        this.tree = response.data.c
+      })
     if (this.$route.name === 'markdown') {
       this.getMarkdownFile(this.$route.params.pathMatch)
     }
@@ -61,13 +59,14 @@ export default {
         this.getMarkdownFile(to.params.pathMatch)
       } else if (to.name === 'note') {
         this.content = null
+        this.$refs['note-side'].reSetActiveName()
       }
     }
   },
   methods: {
     getMarkdownFile (path) {
       this.$Loading.start()
-      axios.get(`/markdown/${path}?t=${dateFormat()}`)
+      getMarkdownFile(path)
         .then((res) => {
           this.content = res.data
           this.$Loading.finish()

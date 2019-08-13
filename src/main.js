@@ -13,7 +13,8 @@ import {
   Row,
   Col,
   Link,
-  Divider
+  Divider,
+  Loading
 } from 'element-ui'
 
 import 'element-ui/lib/theme-chalk/index.css'
@@ -33,6 +34,7 @@ Vue.use(Row)
 Vue.use(Col)
 Vue.use(Link)
 Vue.use(Divider)
+Vue.use(Loading)
 Vue.component('LoadingBar', LoadingBar)
 Vue.config.productionTip = false
 
