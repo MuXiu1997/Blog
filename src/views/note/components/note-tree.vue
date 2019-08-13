@@ -11,7 +11,7 @@
     empty-text=""
   >
     <template slot-scope="scope" :node-key="scope.data.l" class="gray">
-      <span :class="{'currentTreeNode': scope.node===currentNode }">
+      <span :class="{'currentTreeNode': scope.node===currentNode && $route.name==='markdown'}">
         <i
           v-if="scope.data.c"
           :class="scope.node.expanded?'el-icon-folder-opened':'el-icon-folder'"
@@ -23,12 +23,11 @@
   </el-tree>
 </template>
 
-<!--suppress JSUnusedGlobalSymbols -->
 <script>
 import { Tree } from 'element-ui'
 
 export default {
-  name: 'NoteTree',
+  name: 'note-tree',
   props: {
     tree: Array
   },

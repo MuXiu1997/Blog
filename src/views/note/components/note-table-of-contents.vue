@@ -19,13 +19,10 @@ import { Anchor, AnchorLink } from 'iview'
 
 // noinspection JSUnusedGlobalSymbols
 export default {
-  name: 'TOC',
+  name: 'note-table-of-contents',
   props: {
-    container: {
-    },
-    tokens: {
-      type: Array
-    }
+    container: {},
+    tokens: Array
   },
   components: {
     Anchor,

@@ -19,12 +19,12 @@
 <!--suppress NpmUsedModulesInstalled -->
 <script>
 import { Tabs, TabPane } from 'element-ui'
-import NoteTree from './NoteTree'
-import NoteToc from './NoteToc'
+import NoteTree from './note-tree'
+import NoteToc from './note-table-of-contents'
 
 // noinspection JSUnusedGlobalSymbols
 export default {
-  name: 'Side',
+  name: 'note-side',
   props: {
     container: {},
     tokens: Array,

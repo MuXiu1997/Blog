@@ -22,16 +22,10 @@ const router = new Router({
           name: 'note',
           component: () => import(/* webpackChunkName: "note" */ './views/note/index'),
           children: [
-            // {
-            //   path: '*',
-            //   name: 'markdown',
-            //   component: () => import(/* webpackChunkName: "TuiEditor" */ `@/components/TuiEditor`)
-            // }
             {
-              // eslint-disable-next-line no-useless-escape
-              path: '(.*?\.md)',
+              path: '(.*?\\.md)',
               name: 'markdown',
-              component: () => import(/* webpackChunkName: "markdown" */ './views/note/components/NoteMarkdown')
+              component: () => import(/* webpackChunkName: "note-markdown" */ './views/note/components/note-markdown/index')
             }
           ]
         },

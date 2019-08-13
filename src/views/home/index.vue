@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import TheLogo from '../../components/TheLogo'
+import TheLogo from '../../components/the-logo'
 
 // noinspection JSUnusedGlobalSymbols
 export default {

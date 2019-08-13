@@ -13,13 +13,13 @@
 <script>
 // noinspection JSUnusedGlobalSymbols
 export default {
+  name: 'the-logo',
   props: {
     fontSize: {
       type: String,
       default: 'medium'
     }
   },
-  name: 'Logo',
   data () {
     return {
       // 给p标签动态设置字体大小，从而影响子标签code的字体大小

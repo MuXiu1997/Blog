@@ -23,8 +23,8 @@
 
 <!--suppress NpmUsedModulesInstalled -->
 <script>
-import NoteSide from './components/NoteSide'
-import TheLogo from '../../components/TheLogo'
+import NoteSide from './components/note-side'
+import TheLogo from '../../components/the-logo'
 
 import { getSideData, getMarkdownFile } from '../../api'
 
