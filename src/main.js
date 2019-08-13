@@ -22,6 +22,8 @@ import 'element-ui/lib/theme-chalk/index.css'
 import { LoadingBar } from 'iview'
 import 'iview/dist/styles/iview.css'
 
+import './assets/css/font.css'
+
 Vue.use(Container)
 Vue.use(Header)
 Vue.use(Aside)

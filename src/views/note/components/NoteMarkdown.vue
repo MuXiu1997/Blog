@@ -129,5 +129,5 @@ export default {
 </script>
 
 <style scoped>
-  @import 'MarkdownIt.css';
+  @import 'NoteMarkdown.css';
 </style>

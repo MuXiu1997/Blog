@@ -9,6 +9,11 @@ export default new Vuex.Store({
       height: `calc(100% - ${60}px)`
     }
   },
+  getters: {
+    containerStyle (state) {
+      return state.containerStyle
+    }
+  },
   mutations: {
 
   },

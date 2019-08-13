@@ -1,10 +1,10 @@
 <template>
   <el-tabs v-model="activeName" stretch style="margin-top: 10px">
     <el-tab-pane label="文章" name="List">
-      <NoteTree/>
+      <note-tree/>
     </el-tab-pane>
     <el-tab-pane v-if="this.$route.name === 'markdown'" label="大纲" name="TOC">
-      <TOC
+      <note-toc
         :container="container"
         :tokens="tokens"
       />
@@ -15,8 +15,8 @@
 <!--suppress NpmUsedModulesInstalled -->
 <script>
 import { Tabs, TabPane } from 'element-ui'
-import NoteTree from '@/components/NoteTree'
-import TOC from '@/components/TOC'
+import NoteTree from './NoteTree'
+import NoteToc from './NoteToc'
 
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -33,7 +33,7 @@ export default {
     'el-tabs': Tabs,
     'el-tab-pane': TabPane,
     NoteTree,
-    TOC
+    NoteToc
   },
   data () {
     return {

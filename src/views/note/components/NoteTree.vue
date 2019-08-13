@@ -1,11 +1,13 @@
 <template>
-  <el-tree :data="tree"
-           :props="defaultProps"
-           @node-click="handleNodeClick"
-           icon-class="el-icon-arrow-right"
-           :indent="8"
-           :highlight-current="false"
-           :check-on-click-node="true">
+  <el-tree
+    :data="tree"
+    :props="defaultProps"
+    @node-click="handleNodeClick"
+    icon-class="el-icon-arrow-right"
+    :indent="8"
+    :highlight-current="false"
+    :check-on-click-node="true"
+  >
     <template slot-scope="scope" :node-key="scope.data.l" style="color:gray;">
       <span :class="{'currentTreeNode': scope.node===currentNode }">
       <span v-if="scope.data.c && scope.node.expanded">
@@ -27,7 +29,7 @@
 <!--suppress JSUnusedGlobalSymbols -->
 <script>
 import { Tree } from 'element-ui'
-import axios from 'axios'
+import axios from 'axios/index'
 
 export default {
   name: 'NoteTree',

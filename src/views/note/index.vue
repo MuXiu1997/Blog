@@ -1,7 +1,7 @@
 <template>
-  <el-container style="padding: 0 20px;" :style="$store.state.containerStyle">
+  <el-container style="padding: 0 20px;" :style="$store.getters.containerStyle">
     <el-aside style="overflow: auto" width="200px" class="scrollStyle">
-      <Side
+      <note-side
         :container="$refs['noteMain']"
         :tokens="tokens"
       />
@@ -12,7 +12,7 @@
           <router-view :content="content" @parsed="setTokens"/>
         </el-main>
         <el-footer height="100px">
-          <Logo fontSize="small"/>
+          <the-logo font-size="small"/>
         </el-footer>
       </el-container>
     </el-main>
@@ -21,10 +21,10 @@
 
 <!--suppress NpmUsedModulesInstalled -->
 <script>
-import Side from '@/components/Side'
-import Logo from '@/components/Logo'
+import NoteSide from './components/NoteSide'
+import TheLogo from '../../components/TheLogo'
 
-import axios from 'axios'
+import axios from 'axios/index'
 
 const dateFormat = () => {
   // 将当前日期格式化为YYYYMMDD
@@ -39,8 +39,8 @@ const dateFormat = () => {
 export default {
   name: 'Note',
   components: {
-    Side,
-    Logo
+    NoteSide,
+    TheLogo
   },
   data () {
     return {

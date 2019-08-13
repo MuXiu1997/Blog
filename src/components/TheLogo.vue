@@ -22,7 +22,7 @@ export default {
   name: 'Logo',
   data () {
     return {
-      // 给p标签动态设置字体大小，从而影响字标签code的字体大小
+      // 给p标签动态设置字体大小，从而影响子标签code的字体大小
       fs: {
         fontSize: this.fontSize,
         textAlign: 'center'
