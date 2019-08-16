@@ -1,17 +1,17 @@
 <template>
   <el-tabs v-model="activeName" stretch style="margin-top: 10px">
-    <el-tab-pane label="文章" name="List">
+    <el-tab-pane label="文件" name="List">
       <note-tree
         :tree="tree"
+        :isDetail="isDetail"
       />
     </el-tab-pane>
-    <el-tab-pane v-if="this.$route.name === 'markdown'" label="大纲" name="TOC">
-      <keep-alive>
+    <el-tab-pane v-if="isDetail" label="大纲" name="TOC">
         <note-toc
           :container="container"
           :tokens="tokens"
+          ref="TOC"
         />
-      </keep-alive>
     </el-tab-pane>
   </el-tabs>
 </template>
@@ -28,7 +28,8 @@ export default {
   props: {
     container: {},
     tokens: Array,
-    tree: Array
+    tree: Array,
+    isDetail: Boolean
   },
   components: {
     'el-tabs': Tabs,
@@ -39,6 +40,15 @@ export default {
   data () {
     return {
       activeName: 'List'
+    }
+  },
+  watch: {
+    activeName (now) {
+      if (now === 'TOC') {
+        this.$nextTick(() => {
+          this.$refs['TOC'].calcBallTop()
+        })
+      }
     }
   },
   methods: {

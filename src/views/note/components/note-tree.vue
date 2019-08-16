@@ -9,9 +9,10 @@
     :highlight-current="false"
     :check-on-click-node="true"
     empty-text=""
+    :render-after-expand="false"
   >
     <template slot-scope="scope" :node-key="scope.data.l" class="gray">
-      <span :class="{'currentTreeNode': scope.node===currentNode && $route.name==='markdown'}">
+      <span :class="{'currentTreeNode': scope.node===currentNode && isDetail}">
         <i
           v-if="scope.data.c"
           :class="scope.node.expanded?'el-icon-folder-opened':'el-icon-folder'"
@@ -29,7 +30,8 @@ import { Tree } from 'element-ui'
 export default {
   name: 'note-tree',
   props: {
-    tree: Array
+    tree: Array,
+    isDetail: Boolean
   },
   components: {
     'el-tree': Tree

@@ -24,8 +24,8 @@ const router = new Router({
           children: [
             {
               path: '(.*?\\.md)',
-              name: 'markdown',
-              component: () => import(/* webpackChunkName: "note-markdown" */ './views/note/components/note-markdown/index')
+              name: 'note-markdown',
+              component: () => import(/* webpackChunkName: "note-markdown" */ './views/note/components/note-markdown')
             }
           ]
         },
